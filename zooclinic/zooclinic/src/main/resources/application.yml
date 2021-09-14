@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: ifdp-service
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/zoo
+    username: zoo
+    password: zoo
+  jpa:
+    generate-ddl: true
+    hibernate.ddl-auto: create
+    properties.hibernate.jdbc.lob.non_contextual_creation: true
+server:
+  port: 8080
