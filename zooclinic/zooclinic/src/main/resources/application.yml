@@ -8,7 +8,8 @@ spring:
     password: zoo
   jpa:
     generate-ddl: true
-    hibernate.ddl-auto: create
+    hibernate.ddl-auto: update
     properties.hibernate.jdbc.lob.non_contextual_creation: true
+    show-sql: true
 server:
   port: 8080
