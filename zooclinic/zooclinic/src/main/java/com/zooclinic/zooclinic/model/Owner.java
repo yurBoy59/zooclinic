@@ -10,9 +10,7 @@ import java.util.Set;
 @Data
 @Entity
 @Table(schema = "client", name = "pet_owner")
-public class Owner extends BaseModel<Long> {
-
-    private String initials;
+public class Owner extends Person {
 
     private String address;
 

@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(schema = "client", name = "pet")
-public class Pet extends BaseModel<Long> {
+public class Pet extends BaseEntity<Long> {
 
     private String name;
 }

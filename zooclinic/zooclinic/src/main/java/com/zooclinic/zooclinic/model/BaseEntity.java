@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Data
 @MappedSuperclass
-public class BaseModel<TYPE_ID> {
+public class BaseEntity<TYPE_ID> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false)

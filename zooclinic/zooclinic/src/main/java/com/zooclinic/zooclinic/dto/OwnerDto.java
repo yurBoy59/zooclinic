@@ -10,9 +10,9 @@ public class OwnerDto {
 
     private Long id;
 
-    private String initials;
+    private String firstName;
 
-    private String address;
+    private String lastName;
 
     private Set<Pet> pets;
 }
