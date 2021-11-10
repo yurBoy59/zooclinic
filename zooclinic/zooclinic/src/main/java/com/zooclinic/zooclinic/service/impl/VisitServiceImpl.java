@@ -6,10 +6,12 @@ import com.zooclinic.zooclinic.repo.VisitRepository;
 import com.zooclinic.zooclinic.service.VisitService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -47,12 +49,15 @@ public class VisitServiceImpl implements VisitService {
     }
 
     @Override
-    public List<VisitDto> getList() {
-        return null;
+    public List<VisitDto> getList(PageRequest pageRequest) {
+        visitRepository.findAll(pageRequest);
+        return visitRepository.findAll(pageRequest).stream()
+                .map(entity ->modelMapper.map(entity, VisitDto.class))
+                .collect(Collectors.toList());
     }
 
     @Override
     public void delete(Long id) {
-
+        visitRepository.deleteById(id);
     }
 }

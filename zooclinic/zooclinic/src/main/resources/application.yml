@@ -11,5 +11,12 @@ spring:
     hibernate.ddl-auto: update
     properties.hibernate.jdbc.lob.non_contextual_creation: true
     show-sql: true
+  security:
+    user:
+      name: yoric
+      password: 1234
+springdoc:
+  swagger-ui:
+    path: '/swagger-ui.html'
 server:
   port: 8080
