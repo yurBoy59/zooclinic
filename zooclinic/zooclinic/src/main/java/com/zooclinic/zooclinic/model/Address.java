@@ -10,7 +10,8 @@ import javax.persistence.Embeddable;
 @Getter
 @Setter
 @Embeddable
-public class Person {
-    private String firstName;
-    private String lastName;
+public class Address {
+    private String city;
+    private String street;
+    private Long index;
 }

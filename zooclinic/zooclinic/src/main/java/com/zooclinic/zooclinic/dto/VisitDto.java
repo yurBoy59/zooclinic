@@ -1,7 +1,8 @@
 package com.zooclinic.zooclinic.dto;
 
 import com.zooclinic.zooclinic.constants.VisitStatus;
-import com.zooclinic.zooclinic.model.Owner;
+import com.zooclinic.zooclinic.model.Person;
+import com.zooclinic.zooclinic.model.Vet;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -22,11 +23,9 @@ public class VisitDto {
      */
     private String description;
 
+    private Person client;
 
-    /**
-     * Клиент
-     */
-    private Owner owner;
+    private Vet vet;
 
     /**
      * Статус визита

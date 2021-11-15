@@ -2,6 +2,7 @@ package com.zooclinic.zooclinic.model;
 
 import com.zooclinic.zooclinic.constants.VisitStatus;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -10,9 +11,10 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
+@EqualsAndHashCode(callSuper = true)
 @EntityListeners(AuditingEntityListener.class)
 @Data
-@Table(schema = "client")
+@Table(schema = "pet_clinic")
 @Entity
 public class Visit extends BaseEntity<Long> {
 
@@ -26,12 +28,11 @@ public class Visit extends BaseEntity<Long> {
      */
     private String description;
 
-    /**
-     * Клиент
-     */
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "owner_id")
-    private Owner owner;
+    private Person client;
+
+    @OneToOne
+    @JoinColumn(name = "vet_id")
+    private Vet vet;
 
     /**
      * Статус визита

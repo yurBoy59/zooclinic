@@ -16,7 +16,7 @@ import java.util.List;
 @Tag(name = "VisitController")
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/visit")
+@RequestMapping("/api/user/visit")
 public class VisitController {
 
     private final VisitService service;
