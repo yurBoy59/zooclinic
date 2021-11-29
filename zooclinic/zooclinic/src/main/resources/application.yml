@@ -11,6 +11,10 @@ spring:
     hibernate.ddl-auto: update
     properties.hibernate.jdbc.lob.non_contextual_creation: true
     show-sql: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    topics:
+      zooclinic: zooclinic_topic
 springdoc:
   swagger-ui:
     path: '/swagger-ui.html'

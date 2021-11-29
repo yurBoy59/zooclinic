@@ -4,6 +4,7 @@ import com.zooclinic.zooclinic.dto.VisitDto;
 import com.zooclinic.zooclinic.model.Visit;
 import com.zooclinic.zooclinic.repo.OwnerRepository;
 import com.zooclinic.zooclinic.repo.VisitRepository;
+import com.zooclinic.zooclinic.service.IncidentHandler;
 import com.zooclinic.zooclinic.service.VisitService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -25,6 +26,7 @@ public class VisitServiceImpl implements VisitService {
     private final VisitRepository visitRepository;
     private final OwnerRepository ownerRepository;
     private ModelMapper modelMapper;
+    private final IncidentHandler incidentHandler;
 
     @PostConstruct
     void init() {
@@ -39,6 +41,7 @@ public class VisitServiceImpl implements VisitService {
         dto.getClient().setFirstName(ownerRepository.findByLogin(principal.getUsername()).getPerson().getFirstName());
         dto.getClient().setLastName(ownerRepository.findByLogin(principal.getUsername()).getPerson().getLastName());
         Visit savedVisit = visitRepository.save(modelMapper.map(dto, Visit.class));
+        incidentHandler.createReport(savedVisit.toString());
         return modelMapper.map(savedVisit, VisitDto.class);
     }
 
